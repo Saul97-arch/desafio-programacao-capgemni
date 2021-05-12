@@ -3,18 +3,16 @@ import json
 
 # Colocar tudo dentro de uma classe
 # teste vanilla, cada componente seria uma função
-# mudar pra snake_case
-# criar base de dados em JSON
 
 
-def calculadora_anuncios(dinheiroInvestido):
+def calculadora_anuncios(dinheiro_investido):
 
     VISUALIZACOES_POR_REAL = 30
     CLIQUES_POR_VISUALIZACAO = 0.12
     COMPARTILHAMENTO_POR_CLIQUE = 0.15
     VISUALIZACOES_POR_COMPARTILHAMENTO = 40
 
-    visualizacoes = dinheiroInvestido * VISUALIZACOES_POR_REAL
+    visualizacoes = dinheiro_investido * VISUALIZACOES_POR_REAL
 
     cliques = visualizacoes * CLIQUES_POR_VISUALIZACAO
 
@@ -22,18 +20,18 @@ def calculadora_anuncios(dinheiroInvestido):
 
     visualizacoes += compartilhamentos * VISUALIZACOES_POR_COMPARTILHAMENTO
 
-    return {"dinheiroInvestido": dinheiroInvestido, "visualizacoes": visualizacoes, "cliques": cliques, "compartilhamentos": compartilhamentos}
+    return {"dinheiro_investido": dinheiro_investido, "visualizacoes": visualizacoes, "cliques": cliques, "compartilhamentos": compartilhamentos}
 
 
 def opcoes():
     print("\nInsira uma das opções abaixo:\n")
 
-    print("1 - cadastrar anuncio\n")
-
+    print("1 - Cadastrar anuncio\n")
+    print("2 - Exibir dados dos anuncios cadastrados")
     print("Pressione s para sair\n")
 
 
-def recebeData():
+def recebe_data():
     ano = int(input('Insira um ano:\n'))
     mes = int(input('Insira um mês:\n'))
     dia = int(input('Insira um dia:\n'))
@@ -41,32 +39,51 @@ def recebeData():
 
     return data
 
+# testar se funfa
+
+
+def converte_data_str_obj(data_str):
+    return datetime.datetime.strftime(data_str, '%y')
+
 
 def cadastrar_anuncio():
-    nomeAnuncio = input("Nome do anuncio:\n")
+    nome_anuncio = input("Nome do anuncio:\n")
     cliente = input("Cliente:\n")
 
     print("\nInsira a data de incio:\n")
-    dataDeInicio = recebeData()
+    data_de_inicio = recebe_data()
 
     print("\nInsira a data de termino:\n")
-    dataDeTermino = recebeData()
+    data_de_termino = recebe_data()
 
-    investimentoDiario = float(input("Investimento Diario:\n"))
+    investimento_diario = float(input("Investimento Diario:\n"))
 
-    diferenca_de_dias = dataDeTermino - dataDeInicio
-    investimento_total = investimentoDiario * diferenca_de_dias.days
+    diferenca_de_dias = data_de_termino - data_de_inicio
+    investimento_total = investimento_diario * diferenca_de_dias.days
 
     quantidades = calculadora_anuncios(investimento_total)
 
-    # Modularizar a entrega de quantidades talvez, deixar o retorno do cadastro de anuncio mais limpo
-    # De fato vai ficar to retornando só pra ver mesmo kkk
+    data_de_inicio_str = data_de_inicio.ctime()
+    data_de_termino_str = data_de_termino.ctime()
 
-    # Implementar a persistência com JSON.
-    # Filtra por intervalo de tempo e cliente
-    # Fazer testes
-    
-    return {"nomeAnuncio": nomeAnuncio, "cliente": cliente, "investimentoDiario": investimentoDiario, "investimento_total": investimento_total, "visualizacoes": quantidades["visualizacoes"], "cliques": quantidades["cliques"], "compartilhamentos": quantidades["compartilhamentos"]}
+    ano_inicio = int(data_de_inicio.strftime('%Y'))
+    ano_fim = int(data_de_termino.strftime('%Y'))
+
+    return {"nome_anuncio": nome_anuncio, "cliente": cliente, "investimento_diario": investimento_diario, "investimento_total": investimento_total, "visualizacoes": quantidades["visualizacoes"], "cliques": quantidades["cliques"], "compartilhamentos": quantidades["compartilhamentos"], "data_de_inicio": data_de_inicio_str, "data_de_termino": data_de_termino_str, "ano_inicio": ano_inicio, "ano_fim": ano_fim}
+
+
+def ler_database():
+    with open('data.json') as json_file:
+        dados = json.load(json_file)
+
+    for cliente in dados:
+        print("--------------------------------------------------------------------")
+        print("Nome do Cliente: " + str(cliente["cliente"]))
+        print("Nome do Anuncio: " + str(cliente["nome_anuncio"]))
+        print("Total de cliques: " + str(cliente["cliques"]))
+        print("Total de compartilhamentos: " + str(cliente["compartilhamentos"]))
+
+    print("--------------------------------------------------------------------")   
 
 
 def sistema_anuncios():
@@ -94,20 +111,16 @@ def sistema_anuncios():
 
             opcoes()
             res = input()
+
         if (res == '2'):
-            # retornar logo as quatro condições
-            """  valor total investido
-
-             quantidade máxima de visualizações
-
-             quantidade máxima de cliques
-
-             quantidade máxima de compartilhamentos """
+            ler_database()
+            opcoes()
+            res = input()
 
         if (res == '3'):
             pass
-        
-        print(anuncios)
+
+        # print(anuncios)
 
 
 sistema_anuncios()
