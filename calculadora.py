@@ -28,6 +28,7 @@ def opcoes():
     print("1 - Cadastrar anuncio")
     print("2 - Exibir dados dos anuncios cadastrados")
     print("3 - Pesquisa por cliente")
+    print("4 - Pesquisar por intervalo de tempo")
     print("\nPressione s para sair")
 
 
@@ -149,8 +150,8 @@ def sistema_anuncios():
             res = input()
 
         if (res == '4'):
-            data_inicio = input('Insira a data de inicio: ')
-            data_fim = input('Insira a data de fim: ')
+            data_inicio = int(input('Insira a data de inicio: '))
+            data_fim = int(input('Insira a data de fim: '))
             filtrar_por_tempo(data_inicio, data_fim)
             opcoes()
             res = input()
