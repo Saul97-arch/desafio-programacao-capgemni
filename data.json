@@ -1,34 +1,5 @@
 [
   {
-    "nome_anuncio": "dasd",
-    "cliente": "asdasd",
-    "investimento_diario": 30.0,
-    "investimento_total": 13650.0,
-    "visualizacoes": 1588860.0,
-    "cliques": 49140.0,
-    "compartilhamentos": 29484.0
-  },
-  {
-    "nome_anuncio": "1",
-    "cliente": "Ronadlod",
-    "investimento_diario": 30.0,
-    "investimento_total": 22740.0,
-    "visualizacoes": 2646936.0,
-    "cliques": 81864.0,
-    "compartilhamentos": 49118.4
-  },
-  {
-    "nome_anuncio": "dasd",
-    "cliente": "adda",
-    "investimento_diario": 30.0,
-    "investimento_total": 23760.0,
-    "visualizacoes": 2765664.0,
-    "cliques": 85536.0,
-    "compartilhamentos": 51321.6,
-    "data_de_inicio": "Thu Jan  2 00:00:00 2003",
-    "data_de_termino": "Fri Mar  4 00:00:00 2005"
-  },
-  {
     "nome_anuncio": "Chinelas fogo",
     "cliente": "Pretin",
     "investimento_diario": 30.0,
@@ -40,5 +11,18 @@
     "data_de_termino": "Sat Mar  5 00:00:00 2005",
     "ano_inicio": 2002,
     "ano_fim": 2005
+  },
+  {
+    "nome_anuncio": "Ronaldo's chips",
+    "cliente": "Ronaldo",
+    "investimento_diario": 30.0,
+    "investimento_total": 77730.0,
+    "visualizacoes": 9047772.0,
+    "cliques": 279828.0,
+    "compartilhamentos": 167896.8,
+    "data_de_inicio": "Sun Feb  3 00:00:00 2002",
+    "data_de_termino": "Mon Mar  9 00:00:00 2009",
+    "ano_inicio": 2002,
+    "ano_fim": 2009
   }
 ]

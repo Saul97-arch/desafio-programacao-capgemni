@@ -4,7 +4,6 @@ import json
 # Colocar tudo dentro de uma classe
 # teste vanilla, cada componente seria uma função
 
-
 def calculadora_anuncios(dinheiro_investido):
 
     VISUALIZACOES_POR_REAL = 30
@@ -26,9 +25,10 @@ def calculadora_anuncios(dinheiro_investido):
 def opcoes():
     print("\nInsira uma das opções abaixo:\n")
 
-    print("1 - Cadastrar anuncio\n")
+    print("1 - Cadastrar anuncio")
     print("2 - Exibir dados dos anuncios cadastrados")
-    print("Pressione s para sair\n")
+    print("3 - Pesquisa por cliente")
+    print("\nPressione s para sair")
 
 
 def recebe_data():
@@ -81,9 +81,34 @@ def ler_database():
         print("Nome do Cliente: " + str(cliente["cliente"]))
         print("Nome do Anuncio: " + str(cliente["nome_anuncio"]))
         print("Total de cliques: " + str(cliente["cliques"]))
-        print("Total de compartilhamentos: " + str(cliente["compartilhamentos"]))
+        print("Total de compartilhamentos: " +
+              str(cliente["compartilhamentos"]))
 
-    print("--------------------------------------------------------------------")   
+    print("--------------------------------------------------------------------")
+
+
+def pesquisar_por_cliente(cliente):
+    with open('data.json') as json_file:
+        dados = json.load(json_file)
+
+    for anuncio in dados:
+        if (anuncio['cliente'] == cliente):
+            print("--------------------------------------------------------------------")
+            print("Nome do Cliente: " + str(anuncio["cliente"]))
+            print("Nome do Anuncio: " + str(anuncio["nome_anuncio"]))
+            print("Total de cliques: " + str(anuncio["cliques"]))
+            print("Total de compartilhamentos: " +
+                  str(anuncio["compartilhamentos"]))
+    print("--------------------------------------------------------------------")
+
+
+def filtrar_por_tempo(data_inicio, data_final):
+    with open('data.json') as json_file:
+        dados = json.load(json_file)
+
+    for anuncio in dados:
+        if anuncio['ano_inicio'] <= data_final and anuncio['ano_fim'] >= data_inicio:
+            print(anuncio)
 
 
 def sistema_anuncios():
@@ -118,9 +143,16 @@ def sistema_anuncios():
             res = input()
 
         if (res == '3'):
-            pass
+            cliente = input("Insira o nome do cliente: ")
+            pesquisar_por_cliente(cliente)
+            opcoes()
+            res = input()
 
-        # print(anuncios)
-
-
+        if (res == '4'):
+            data_inicio = input('Insira a data de inicio: ')
+            data_fim = input('Insira a data de fim: ')
+            filtrar_por_tempo(data_inicio, data_fim)
+            opcoes()
+            res = input()
+        
 sistema_anuncios()
