@@ -1,4 +1,5 @@
 import datetime
+import json
 
 # Colocar tudo dentro de uma classe
 # teste vanilla, cada componente seria uma função
@@ -21,7 +22,8 @@ def calculadora_anuncios(dinheiroInvestido):
 
     visualizacoes += compartilhamentos * VISUALIZACOES_POR_COMPARTILHAMENTO
 
-    return {"dinheiroInvestido": dinheiroInvestido, "visualizacoes":visualizacoes, "cliques": cliques, "compartilhamentos":compartilhamentos}
+    return {"dinheiroInvestido": dinheiroInvestido, "visualizacoes": visualizacoes, "cliques": cliques, "compartilhamentos": compartilhamentos}
+
 
 def opcoes():
     print("\nInsira uma das opções abaixo:\n")
@@ -63,13 +65,18 @@ def cadastrar_anuncio():
     # Implementar a persistência com JSON.
     # Filtra por intervalo de tempo e cliente
     # Fazer testes
-
-    return {"nomeAnuncio": nomeAnuncio, "cliente": cliente, "dataDeInicio": dataDeInicio, "dataDeTermino:": dataDeTermino, "investimentoDiario": investimentoDiario, "investimento_total": investimento_total, "visualizacoes": quantidades["visualizacoes"], "cliques": quantidades["cliques"], "compartilhamentos": quantidades["compartilhamentos"]}
+    
+    return {"nomeAnuncio": nomeAnuncio, "cliente": cliente, "investimentoDiario": investimentoDiario, "investimento_total": investimento_total, "visualizacoes": quantidades["visualizacoes"], "cliques": quantidades["cliques"], "compartilhamentos": quantidades["compartilhamentos"]}
 
 
 def sistema_anuncios():
 
-    anuncios = []
+    try:
+        with open('data.json', 'r') as simple_database:
+            anuncios = json.load(simple_database)
+    except:
+        anuncios = []
+
     res = ""
 
     print("Bem vindo ao sistema de cadastros de anuncios!\n")
@@ -80,9 +87,25 @@ def sistema_anuncios():
         opcoes()
 
         if (res == '1'):
-            anuncios.append(cadastrar_anuncio())
+            anuncio_cadastrado = cadastrar_anuncio()
+            anuncios.append(anuncio_cadastrado)
+            with open('data.json', 'w') as simple_database:
+                json.dump(anuncios, simple_database)
+
             opcoes()
             res = input()
+        if (res == '2'):
+            # retornar logo as quatro condições
+            """  valor total investido
+
+             quantidade máxima de visualizações
+
+             quantidade máxima de cliques
+
+             quantidade máxima de compartilhamentos """
+
+        if (res == '3'):
+            pass
         
         print(anuncios)
 
