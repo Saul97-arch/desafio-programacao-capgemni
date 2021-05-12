@@ -1,28 +1,41 @@
 [
   {
-    "nome_anuncio": "Chinelas fogo",
-    "cliente": "Pretin",
+    "nome_anuncio": "Chinelas Havainas",
+    "cliente": "Havainas",
     "investimento_diario": 30.0,
-    "investimento_total": 32910.0,
-    "visualizacoes": 3830723.9999999995,
-    "cliques": 118476.0,
-    "compartilhamentos": 71085.59999999999,
-    "data_de_inicio": "Mon Mar  4 00:00:00 2002",
-    "data_de_termino": "Sat Mar  5 00:00:00 2005",
-    "ano_inicio": 2002,
-    "ano_fim": 2005
+    "investimento_total": 54810.0,
+    "visualizacoes": 6379884.0,
+    "cliques": 197316.0,
+    "compartilhamentos": 118389.59999999999,
+    "data_de_inicio": "Tue Mar  4 00:00:00 2003",
+    "data_de_termino": "Tue Mar  4 00:00:00 2008",
+    "ano_inicio": 2003,
+    "ano_fim": 2008
   },
   {
-    "nome_anuncio": "Ronaldo's chips",
-    "cliente": "Ronaldo",
-    "investimento_diario": 30.0,
-    "investimento_total": 77730.0,
-    "visualizacoes": 9047772.0,
-    "cliques": 279828.0,
-    "compartilhamentos": 167896.8,
-    "data_de_inicio": "Sun Feb  3 00:00:00 2002",
-    "data_de_termino": "Mon Mar  9 00:00:00 2009",
-    "ano_inicio": 2002,
-    "ano_fim": 2009
+    "nome_anuncio": "Kalvin Clein Shorts",
+    "cliente": "Kalvin",
+    "investimento_diario": 20.0,
+    "investimento_total": 51780.0,
+    "visualizacoes": 6027192.0,
+    "cliques": 186408.0,
+    "compartilhamentos": 111844.8,
+    "data_de_inicio": "Tue Mar  4 00:00:00 2003",
+    "data_de_termino": "Mon Apr  5 00:00:00 2010",
+    "ano_inicio": 2003,
+    "ano_fim": 2010
+  },
+  {
+    "nome_anuncio": "Play 5",
+    "cliente": "Sonny",
+    "investimento_diario": 10.0,
+    "investimento_total": 31260.0,
+    "visualizacoes": 3638663.9999999995,
+    "cliques": 112536.0,
+    "compartilhamentos": 67521.59999999999,
+    "data_de_inicio": "Thu Aug 12 00:00:00 2004",
+    "data_de_termino": "Mon Mar  4 00:00:00 2013",
+    "ano_inicio": 2004,
+    "ano_fim": 2013
   }
 ]
