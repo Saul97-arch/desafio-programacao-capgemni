@@ -42,8 +42,11 @@ class GerenciadorDeAnuncios:
         return datetime.datetime.strftime(data_str, '%y')
 
     def cadastrar_anuncio(self):
-        nome_anuncio = input("Nome do anuncio:\n")
-        cliente = input("Cliente:\n")
+
+        anuncio = {}
+
+        anuncio["nome_anuncio"] = input("Nome do anuncio:\n")
+        anuncio["cliente"] = input("Cliente:\n")
 
         print("\nInsira a data de incio:\n")
         data_de_inicio = self.recebe_data()
@@ -51,20 +54,20 @@ class GerenciadorDeAnuncios:
         print("\nInsira a data de termino:\n")
         data_de_termino = self.recebe_data()
 
-        investimento_diario = float(input("Investimento Diario:\n"))
-
+        anuncio["investimento_diario"] = float(input("Investimento Diario:\n"))
+        # delta time
         diferenca_de_dias = data_de_termino - data_de_inicio
-        investimento_total = investimento_diario * diferenca_de_dias.days
+        anuncio["investimento_total"] = anuncio["investimento_diario"] * diferenca_de_dias.days
 
-        quantidades = self.calc_quantidades(investimento_total)
+        quantidades = self.calc_quantidades(anuncio["investimento_total"])
 
-        data_de_inicio_str = data_de_inicio.ctime()
-        data_de_termino_str = data_de_termino.ctime()
+        anuncio["data_de_inicio"] = data_de_inicio.ctime()
+        anuncio["data_de_termino"] = data_de_termino.ctime()
 
-        ano_inicio = int(data_de_inicio.strftime('%Y'))
-        ano_fim = int(data_de_termino.strftime('%Y'))
+        anuncio["ano_inicio"] = int(data_de_inicio.strftime('%Y'))
+        anuncio["ano_fim"] = int(data_de_termino.strftime('%Y'))
 
-        return {"nome_anuncio": nome_anuncio, "cliente": cliente, "investimento_diario": investimento_diario, "investimento_total": investimento_total, "visualizacoes": quantidades["visualizacoes"], "cliques": quantidades["cliques"], "compartilhamentos": quantidades["compartilhamentos"], "data_de_inicio": data_de_inicio_str, "data_de_termino": data_de_termino_str, "ano_inicio": ano_inicio, "ano_fim": ano_fim}
+        return { **anuncio , **quantidades }
 
     def ler_database(self):
         with open('db.json') as json_file:
