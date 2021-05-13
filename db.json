@@ -1,0 +1,28 @@
+[
+  {
+    "nome_anuncio": "Roney",
+    "cliente": "Roney",
+    "investimento_diario": 10.0,
+    "investimento_total": 7590.0,
+    "visualizacoes": 719532.0,
+    "cliques": 27324.0,
+    "compartilhamentos": 12295.8,
+    "data_de_inicio": "Sun Feb  2 00:00:00 2003",
+    "data_de_termino": "Wed Mar  2 00:00:00 2005",
+    "ano_inicio": 2003,
+    "ano_fim": 2005
+  },
+  {
+    "nome_anuncio": "Capgemini Proway",
+    "cliente": "Capgemini",
+    "investimento_diario": 20.0,
+    "investimento_total": 9880.0,
+    "visualizacoes": 936624.0,
+    "cliques": 35568.0,
+    "compartilhamentos": 16005.6,
+    "data_de_inicio": "Wed Mar  6 00:00:00 2019",
+    "data_de_termino": "Sun Jul 12 00:00:00 2020",
+    "ano_inicio": 2019,
+    "ano_fim": 2020
+  }
+]

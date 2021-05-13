@@ -20,7 +20,7 @@ class GerenciadorDeAnuncios:
 
         visualizacoes += compartilhamentos * self.VISUALIZACOES_POR_COMPARTILHAMENTO
 
-        return {"dinheiro_investido": dinheiro_investido, "visualizacoes": visualizacoes, "cliques": cliques, "compartilhamentos": compartilhamentos}
+        return {"dinheiro_investido": dinheiro_investido, "visualizacoes": round(visualizacoes, 1), "cliques": cliques, "compartilhamentos": round(compartilhamentos, 1)}
 
     def opcoes(self):
         print("\nInsira uma das opções abaixo:\n")
