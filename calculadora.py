@@ -69,14 +69,7 @@ class Calculadora:
             dados = json.load(json_file)
 
         for cliente in dados:
-            print("--------------------------------------------------------------------")
-            print("Nome do Cliente: " + str(cliente["cliente"]))
-            print("Nome do Anuncio: " + str(cliente["nome_anuncio"]))
-            print("Total de cliques: " + str(cliente["cliques"]))
-            print("Total de compartilhamentos: " +
-                  str(cliente["compartilhamentos"]))
-
-        print("--------------------------------------------------------------------")
+           self.mostra_dados(cliente)
 
     def pesquisar_por_cliente(self, cliente):
         with open('data.json') as json_file:
@@ -105,9 +98,11 @@ class Calculadora:
         print("-------------------------------------------------")
         print("Nome do Anuncio:" + anuncio['nome_anuncio'])
         print("Cliente: " + anuncio["cliente"])
-        print("Quantidade de visualizações: " + anuncio["visualizacoes"])
-        print("Quantidade de cliques: " + anuncio["cliques"])
-        print("Compartilhamentos: " + anuncio["compartilhamentos"])
+        print("Quantidade de visualizações: " + str(anuncio["visualizacoes"]))
+        print("Quantidade de cliques: " + str(anuncio["cliques"]))
+        print("Compartilhamentos: " + str(anuncio["compartilhamentos"]))
+        print("Data de inicio: " + anuncio["data_de_inicio"])
+        print("Data de termino: " + anuncio["data_de_termino"])
         print("--------------------------------------------------")
         
     def sistema_anuncios(self):
@@ -156,3 +151,4 @@ class Calculadora:
 
 calculadora = Calculadora()
 calculadora.sistema_anuncios()
+

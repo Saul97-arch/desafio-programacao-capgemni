@@ -37,5 +37,18 @@
     "data_de_termino": "Mon Mar  4 00:00:00 2013",
     "ano_inicio": 2004,
     "ano_fim": 2013
+  },
+  {
+    "nome_anuncio": "Mactnitosh",
+    "cliente": "Mac",
+    "investimento_diario": 10.0,
+    "investimento_total": 3940.0,
+    "visualizacoes": 458616.0,
+    "cliques": 14184.0,
+    "compartilhamentos": 8510.4,
+    "data_de_inicio": "Tue Feb  3 00:00:00 1998",
+    "data_de_termino": "Thu Mar  4 00:00:00 1999",
+    "ano_inicio": 1998,
+    "ano_fim": 1999
   }
 ]
