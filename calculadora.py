@@ -2,7 +2,7 @@ import datetime
 import json
 
 
-class Calculadora:
+class GerenciadorDeAnuncios:
     def __init__(self):
         self.VISUALIZACOES_POR_REAL = 30
         self.CLIQUES_POR_VISUALIZACAO = 0.12
@@ -14,7 +14,7 @@ class Calculadora:
 
         cliques = visualizacoes * self.CLIQUES_POR_VISUALIZACAO
 
-        compartilhamentos = cliques * self.COMPARTILHAMENTO_POR_CLIQUE * 4
+        compartilhamentos = cliques * self.COMPARTILHAMENTO_POR_CLIQUE * 3
 
         visualizacoes += compartilhamentos * self.VISUALIZACOES_POR_COMPARTILHAMENTO
 
@@ -65,14 +65,14 @@ class Calculadora:
         return {"nome_anuncio": nome_anuncio, "cliente": cliente, "investimento_diario": investimento_diario, "investimento_total": investimento_total, "visualizacoes": quantidades["visualizacoes"], "cliques": quantidades["cliques"], "compartilhamentos": quantidades["compartilhamentos"], "data_de_inicio": data_de_inicio_str, "data_de_termino": data_de_termino_str, "ano_inicio": ano_inicio, "ano_fim": ano_fim}
 
     def ler_database(self):
-        with open('data.json') as json_file:
+        with open('db.json') as json_file:
             dados = json.load(json_file)
 
         for cliente in dados:
            self.mostra_dados(cliente)
 
     def pesquisar_por_cliente(self, cliente):
-        with open('data.json') as json_file:
+        with open('db.json') as json_file:
             dados = json.load(json_file)
 
         for anuncio in dados:
@@ -87,7 +87,7 @@ class Calculadora:
         print("--------------------------------------------------------------------")
 
     def filtrar_por_tempo(self, data_inicio, data_final):
-        with open('data.json') as json_file:
+        with open('db.json') as json_file:
             dados = json.load(json_file)
 
         for anuncio in dados:
@@ -108,7 +108,7 @@ class Calculadora:
     def sistema_anuncios(self):
 
         try:
-            with open('data.json', 'r') as simple_database:
+            with open('db.json', 'r') as simple_database:
                 anuncios = json.load(simple_database)
         except:
             anuncios = []
@@ -124,7 +124,7 @@ class Calculadora:
             if (res == '1'):
                 anuncio_cadastrado = self.cadastrar_anuncio()
                 anuncios.append(anuncio_cadastrado)
-                with open('data.json', 'w') as simple_database:
+                with open('db.json', 'w') as simple_database:
                     json.dump(anuncios, simple_database)
 
                 self.opcoes()
@@ -149,6 +149,6 @@ class Calculadora:
                 res = input()
 
 
-calculadora = Calculadora()
+calculadora = GerenciadorDeAnuncios()
 calculadora.sistema_anuncios()
 
