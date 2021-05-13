@@ -1,6 +1,8 @@
 import datetime
 import json
 
+# usar ** para spread
+# inicilizar as chaves direto
 
 class GerenciadorDeAnuncios:
     def __init__(self):
