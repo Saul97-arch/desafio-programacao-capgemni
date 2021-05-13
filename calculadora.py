@@ -121,11 +121,12 @@ class GerenciadorDeAnuncios:
 
         res = ''
     
-        while res != 's'.lower():
-            print("\nBem vindo ao sistema de cadastros de anuncios!\n")
-            self.opcoes()
-            res = input()
+        print("\nBem vindo ao sistema de cadastros de anuncios!\n")
+        self.opcoes()
             
+        res = input("Sua opção: ")
+        
+        while res != 's'.lower():
             if (res == '1'):
                 anuncio_cadastrado = self.cadastrar_anuncio()
                 anuncios.append(anuncio_cadastrado)
@@ -133,25 +134,26 @@ class GerenciadorDeAnuncios:
                     json.dump(anuncios, simple_database)
 
                 self.opcoes()
-                res = input()
-
-            if (res == '2'):
+                res = input("Sua opção: ")
+            elif (res == '2'):
                 self.ler_database()
                 self.opcoes()
-                res = input()
-
-            if (res == '3'):
+                res = input("Sua opção: ")
+            elif (res == '3'):
                 cliente = input("Insira o nome do cliente: ")
                 self.pesquisar_por_cliente(cliente)
                 self.opcoes()
-                #res = input()
-
-            if (res == '4'):
+                res =input("Sua opção: ")
+            elif (res == '4'):
                 data_inicio = int(input('Insira a data de inicio: '))
                 data_fim = int(input('Insira a data de fim: '))
                 self.filtrar_por_tempo(data_inicio, data_fim)
                 self.opcoes()
-                res = input()
+                res = input("Sua opção: ")
+            else:
+                print("\nOpção inválida!")
+                self.opcoes()
+                res = input("Sua opção: ")
 
 
 calculadora = GerenciadorDeAnuncios()
