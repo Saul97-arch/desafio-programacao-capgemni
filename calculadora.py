@@ -145,8 +145,8 @@ class GerenciadorDeAnuncios:
                 self.opcoes()
                 res =input("Sua opção: ")
             elif (res == '4'):
-                data_inicio = int(input('Insira a data de inicio: '))
-                data_fim = int(input('Insira a data de fim: '))
+                data_inicio = int(input('Insira a ano de inicio: '))
+                data_fim = int(input('Insira a ano de fim: '))
                 self.filtrar_por_tempo(data_inicio, data_fim)
                 self.opcoes()
                 res = input("Sua opção: ")
